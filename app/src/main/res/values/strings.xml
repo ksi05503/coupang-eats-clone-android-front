@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CoupangEatsClone</string>
+
+
+
+    <!-- Main -->
+    <string name="main_btm_nav_home_title">홈</string>
+    <string name="main_btm_nav_search">검색</string>
+    <string name="main_btm_nav_favorites">즐겨찾기</string>
+    <string name="main_btm_nav_orders">주문내역</string>
+    <string name="main_btm_nav_my_eats">마이이츠</string>
+
 </resources>

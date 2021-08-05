@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_main_btm_nav_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:checkable="true"
+        android:title="@string/main_btm_nav_home_title" />
+    <item
+        android:id="@+id/menu_main_btm_nav_search"
+        android:icon="@drawable/ic_baseline_search_24"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="@string/main_btm_nav_search" />
+    <item
+        android:id="@+id/menu_main_btm_nav_favorites"
+        android:icon="@drawable/ic_baseline_favorite_border_24"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="@string/main_btm_nav_favorites" />
+    <item
+        android:id="@+id/menu_main_btm_nav_orders"
+        android:icon="@drawable/ic_baseline_fact_check_24"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="@string/main_btm_nav_orders" />
+
+    <item
+        android:id="@+id/menu_main_btm_nav_my_eats"
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="@string/main_btm_nav_my_eats" />
+
+</menu>
