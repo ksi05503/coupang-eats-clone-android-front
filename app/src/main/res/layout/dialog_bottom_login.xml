@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="14dp"
+        android:text="로그인이필요합니다."
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="18dp"
+        android:text="로그인 후 맛있는 음식을 빠르게 즐겨보세요."
+        android:textSize="13dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialog_bottom_btn_app_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="14dp"
+        android:text="쿠팡 앱으로 로그인"
+        android:textSize="13dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lightBlue"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/dialog_bottom_btn_id_login"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="14dp"
+        android:text="쿠팡 아이디로 로그인"
+        android:textSize="13dp"
+        android:textColor="@color/lightBlue"
+        android:backgroundTint="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="14dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아직 회원이 아니신가요? "
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/dialog_bottom_btn_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="@color/lightBlue"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="13dp"
+        android:text="로그인하여 쿠팡이츠 서비스 이용약관, 위치기반서비스 이용약관, 쿠팡페이 서비스 이용약관, 쿠팡페이 전자금융거래약관, 쿠팡페이 개인정보수집이용, 쿠팡페이 개인정보제공에 동의합니다."
+        />
+
+</LinearLayout>

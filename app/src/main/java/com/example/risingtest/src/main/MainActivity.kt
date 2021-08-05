@@ -45,18 +45,17 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
                     }
                     R.id.menu_main_btm_nav_my_eats -> {
 
-/*
                         //bottom sheet 로그인 다이얼로그 띄우기
                         val bottomSheet = BottomSheet()
                         bottomSheet.show(supportFragmentManager, bottomSheet.tag)
-*/
 
 
+/*
 
                         supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, MyEatsFragment())
                             .commitAllowingStateLoss()
-                        return@OnNavigationItemSelectedListener true
+                        return@OnNavigationItemSelectedListener true*/
                     }
 
                 }

@@ -12,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest">
+        <activity android:name=".src.main.login.LoginActivity"></activity>
+        <activity android:name=".src.main.signup.SignUpActivity" />
         <activity
             android:name=".src.splash.SplashActivity"
             android:exported="true"
