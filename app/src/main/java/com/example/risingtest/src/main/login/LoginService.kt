@@ -10,7 +10,7 @@ import retrofit2.Response
 class LoginService(val view: LoginActivityView) {
     fun tryPostLogin(postLoginRequest: PostLoginRequest){
         val loginRetrofitInterface = ApplicationClass.sRetrofit.create(LoginRetrofitInterface::class.java)
-        loginRetrofitInterface.postSignUp(postLoginRequest).enqueue(object :
+        loginRetrofitInterface.postLogin(postLoginRequest).enqueue(object :
             Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 view.onPostLoginSuccess(response.body() as LoginResponse)
