@@ -6,13 +6,28 @@ import android.view.View
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
+import com.example.risingtest.src.main.home.models.RestaurantProfileData
 import com.example.risingtest.src.main.home.models.RestaurantType
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home)    {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+        val restaurantTypeAdapter = RestaurantTypeAdapter()
+        restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
+        binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+
+        val restaurantProfileAdapter = RestaurantProfileAdapter()
+        restaurantProfileAdapter.dataSet = setRestaurantProfileDummyData()
+        binding.recyclerViewFranchise.adapter = restaurantProfileAdapter
+    }
+
+    fun setRestaurantTypeDummyData(): MutableList<RestaurantType>{
         var dataList =  mutableListOf<RestaurantType>()
+
         dataList.add(RestaurantType(R.drawable.round_png_type1,"신규 맛집"))
         dataList.add(RestaurantType(R.drawable.round_png_type2,"1인분"))
         dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
@@ -23,13 +38,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
         dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
 
-
-        val adapter = RestaurantTypeAdapter()
-        adapter.dataSet = dataList
-        binding.recyclerViewRestaurantType.adapter = adapter
-
+        return dataList
     }
 
+    fun setRestaurantProfileDummyData(): MutableList<RestaurantProfileData>{
+        var dataList = mutableListOf<RestaurantProfileData>()
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"버거킹 군자능동점","4.5","1394","0.9km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_3,"미친피자 건대본점","4.9","136","0.4km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
+        return dataList
+
+    }
 
 
 }
