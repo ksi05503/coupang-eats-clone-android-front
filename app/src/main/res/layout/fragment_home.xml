@@ -51,7 +51,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="190dp"
-                android:src="@drawable/ad_4cm_10cm"/>
+                android:src="@drawable/ad_4cm_10cm" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_restaurant_type"
