@@ -1,10 +1,12 @@
 package com.example.risingtest.src.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityMainBinding
+import com.example.risingtest.src.main.favorites.FavoritesActivity
 import com.example.risingtest.src.main.favorites.FavoritesFragment
 import com.example.risingtest.src.main.home.HomeFragment
 import com.example.risingtest.src.main.myeats.MyEatsFragment
@@ -32,10 +34,14 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
                         return@OnNavigationItemSelectedListener true
                     }
                     R.id.menu_main_btm_nav_favorites -> {
-                        supportFragmentManager.beginTransaction()
+/*                        supportFragmentManager.beginTransaction()
                             .replace(R.id.main_frm, FavoritesFragment())
                             .commitAllowingStateLoss()
-                        return@OnNavigationItemSelectedListener true
+                        return@OnNavigationItemSelectedListener true*/
+
+                        val i = Intent(this,FavoritesActivity::class.java)
+                        startActivity(i)
+
                     }
                     R.id.menu_main_btm_nav_orders -> {
                         supportFragmentManager.beginTransaction()

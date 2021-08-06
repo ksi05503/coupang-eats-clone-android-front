@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest">
-        <activity android:name=".src.main.login.LoginActivity"></activity>
+        <activity
+            android:name=".src.main.favorites.FavoritesActivity"
+            android:exported="true" />
+        <activity android:name=".src.main.login.LoginActivity" />
         <activity android:name=".src.main.signup.SignUpActivity" />
         <activity
             android:name=".src.splash.SplashActivity"
@@ -26,9 +29,7 @@
         </activity>
         <activity
             android:name=".src.main.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
