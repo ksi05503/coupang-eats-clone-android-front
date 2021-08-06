@@ -12,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.src.main.home.models.RestaurantType
 
-class RestaurantTypeAdapter(private val dataSet: List<RestaurantType>): RecyclerView.Adapter<RestaurantTypeAdapter.ViewHolder>() {
+//  adapter.notifyDataSetChanged() 데이터 리스트 변화있을때 이거하면 업데이트 된다.
 
+
+class RestaurantTypeAdapter(): RecyclerView.Adapter<RestaurantTypeAdapter.ViewHolder>() {
+    var dataSet = mutableListOf<RestaurantType>()
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
 
         val textView: TextView = view.findViewById(R.id.item_restaurant_type_text)

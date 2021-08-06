@@ -24,7 +24,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
 
 
-        val adapter = RestaurantTypeAdapter(dataList)
+        val adapter = RestaurantTypeAdapter()
+        adapter.dataSet = dataList
         binding.recyclerViewRestaurantType.adapter = adapter
 
     }
