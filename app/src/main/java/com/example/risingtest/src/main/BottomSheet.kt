@@ -30,11 +30,14 @@ class BottomSheet  : BottomSheetDialogFragment() {
         view?.findViewById<Button>(R.id.dialog_bottom_btn_id_login)?.setOnClickListener {
             val i = Intent(view?.context, LoginActivity::class.java )
             startActivity(i)
+            dismiss()
         }
 
         view?.findViewById<TextView>(R.id.dialog_bottom_btn_sign_up)?.setOnClickListener {
             val i = Intent(view?.context, SignUpActivity::class.java)
             startActivity(i)
+            dismiss()
+
         }
     }
 

@@ -1,14 +1,18 @@
 package com.example.risingtest.src.main.login
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityLoginBinding
 import com.example.risingtest.src.main.login.models.LoginResponse
 import com.example.risingtest.src.main.login.models.PostLoginRequest
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) ,LoginActivityView{
+    var userEmail:String =""
+    var password:String =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.title = "로그인"
@@ -16,8 +20,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
         binding.apply {
             loginBtn.setOnClickListener {
-                val userEmail = editTextLoginEmail.text.toString()
-                val password = editTextLoginPassword.text.toString()
+                userEmail = editTextLoginEmail.text.toString()
+                password = editTextLoginPassword.text.toString()
 /*
                 val userEmail = "yeon@naver.com"
                 val password = "11111111"
@@ -37,6 +41,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         dismissLoadingDialog()
         Log.d("Okhttp",response.message.toString())
         Log.d("Okhttp","jwt: ${response.result.jwt}")
+
+        val editor :SharedPreferences.Editor = ApplicationClass.sSharedPreferences.edit()
+        editor.putString("MY_EMAIL", userEmail)
+        editor.putString("MY_PASSWORD", password)
+        editor.putInt("MY_USERID", response.result.userId)
+        editor.putString("MY_JWT", response.result.jwt)
+        editor.apply()
+        Log.d("SPSPSP", "$userEmail,$password")
+
+ //       Log.d("SPSPSP", ApplicationClass.sSharedPreferences.getString("MY_JWT","")!!)
+
+
+        finish()
     }
 
     override fun onPostLoginFailure(message: String) {

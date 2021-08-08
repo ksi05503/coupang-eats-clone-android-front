@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.risingtest.R
+import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityMainBinding
 import com.example.risingtest.src.main.favorites.FavoritesActivity
@@ -51,21 +52,28 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
                     }
                     R.id.menu_main_btm_nav_my_eats -> {
 
-                        //bottom sheet 로그인 다이얼로그 띄우기
-                        val bottomSheet = BottomSheet()
-                        bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+                        if(checkIsLogin()){
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.main_frm, MyEatsFragment())
+                                .commitAllowingStateLoss()
+                            return@OnNavigationItemSelectedListener true
+                        }else{
+                            //bottom sheet 로그인 다이얼로그 띄우기
+                            val bottomSheet = BottomSheet()
+                            bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+
+                        }
 
 
-/*
 
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, MyEatsFragment())
-                            .commitAllowingStateLoss()
-                        return@OnNavigationItemSelectedListener true*/
                     }
 
                 }
                 false
             })
+    }
+
+    fun checkIsLogin() : Boolean {
+        return !ApplicationClass.sSharedPreferences.getString("MY_JWT","").isNullOrBlank()
     }
 }
