@@ -23,6 +23,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         val restaurantProfileAdapter = RestaurantProfileAdapter()
         restaurantProfileAdapter.dataSet = setRestaurantProfileDummyData()
         binding.recyclerViewFranchise.adapter = restaurantProfileAdapter
+
+        val couponAdapter = CouponAdapter()
+        couponAdapter.dataSet = setCouponDummyData()
+        binding.recyclerViewCoupon.adapter = couponAdapter
+    }
+
+    private fun setCouponDummyData(): MutableList<Int> {
+        var dataList = mutableListOf<Int>()
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        dataList.add(R.drawable.coupon1)
+        return dataList
     }
 
     fun setRestaurantTypeDummyData(): MutableList<RestaurantType>{
