@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
-import com.example.risingtest.src.main.home.models.RestaurantProfileData
+import com.example.risingtest.src.main.RestaurantProfileData
 
 class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.ViewHolder>() {
 
