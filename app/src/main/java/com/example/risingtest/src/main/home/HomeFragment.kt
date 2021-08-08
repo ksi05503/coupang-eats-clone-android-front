@@ -27,6 +27,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         val couponAdapter = CouponAdapter()
         couponAdapter.dataSet = setCouponDummyData()
         binding.recyclerViewCoupon.adapter = couponAdapter
+
+        val restaurantNewProfileAdapter = RestaurantProfileAdapter()
+        restaurantNewProfileAdapter.dataSet = setRestaurantNewProfileDummyData()
+        binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
+
+    }
+
+    private fun setRestaurantNewProfileDummyData(): MutableList<RestaurantProfileData> {
+        var dataList = mutableListOf<RestaurantProfileData>()
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"피자헛 건대점","4.1","0","1.3km","2000원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_3,"공차 건대점","4.0","0","1.7km","3800원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"할매떡볶이 건대점","5.0","9","1.3km","무료배달"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"피자헛 건대점","4.1","0","1.3km","2000원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"피자헛 건대점","4.1","2","1.3km","2000원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"피자헛 건대점","4.1","0","1.3km","2000원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"피자헛 건대점","4.1","2","1.3km","2000원"))
+        dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"피자헛 건대점","4.1","2","1.3km","2000원"))
+
+        return dataList
     }
 
     private fun setCouponDummyData(): MutableList<Int> {

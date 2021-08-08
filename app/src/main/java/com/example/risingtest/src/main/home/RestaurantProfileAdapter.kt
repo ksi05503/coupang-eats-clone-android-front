@@ -18,12 +18,24 @@ class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.Vi
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
         val imageView: ImageView = view.findViewById(R.id.item_image_view_restaurant_image)
         val textViewName : TextView = view.findViewById(R.id.item_text_restaurant_name)
+        val imageViewStar: ImageView = view.findViewById(R.id.item_image_view_star)
         val textViewGrade : TextView = view.findViewById(R.id.item_text_restaurant_grade)
         val textViewReviewCount : TextView = view.findViewById(R.id.item_text_restaurant_review_count)
         val textViewDistance : TextView = view.findViewById(R.id.item_text_restaurant_distance)
         val textViewCharge : TextView = view.findViewById(R.id.item_text_restaurant_charge)
 
         fun setItemInfo(restaurantProfileData: RestaurantProfileData){
+
+            if(restaurantProfileData.review_num == "0"){
+                textViewGrade.visibility = View.GONE
+                imageViewStar.visibility = View.GONE
+                textViewReviewCount.visibility = View.GONE
+            }else{
+                textViewGrade.visibility = View.VISIBLE
+                imageViewStar.visibility = View.VISIBLE
+                textViewReviewCount.visibility = View.VISIBLE
+            }
+
             imageView.setImageResource(restaurantProfileData.resId)
             textViewName.text = restaurantProfileData.name
             textViewGrade.text = restaurantProfileData.grade

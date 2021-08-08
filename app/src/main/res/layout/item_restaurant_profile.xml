@@ -30,6 +30,7 @@
         android:orientation="horizontal"
         android:layout_marginLeft="10dp">
         <ImageView
+            android:id="@+id/item_image_view_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_star_24"/>
