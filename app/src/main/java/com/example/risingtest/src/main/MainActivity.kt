@@ -45,10 +45,18 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
 
                     }
                     R.id.menu_main_btm_nav_orders -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, OrdersFragment())
-                            .commitAllowingStateLoss()
-                        return@OnNavigationItemSelectedListener true
+
+                        if(checkIsLogin()){
+                            supportFragmentManager.beginTransaction()
+                                .replace(R.id.main_frm, OrdersFragment())
+                                .commitAllowingStateLoss()
+                            return@OnNavigationItemSelectedListener true
+                        }else{
+                            //bottom sheet 로그인 다이얼로그 띄우기
+                            val bottomSheet = BottomSheet()
+                            bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+                        }
+
                     }
                     R.id.menu_main_btm_nav_my_eats -> {
 

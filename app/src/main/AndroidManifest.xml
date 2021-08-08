@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest">
         <activity
+            android:name=".src.main.myeats.activities.SettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".src.main.favorites.FavoritesActivity"
             android:exported="true" />
         <activity android:name=".src.main.login.LoginActivity" />
@@ -29,7 +32,7 @@
         </activity>
         <activity
             android:name=".src.main.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
