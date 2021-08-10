@@ -11,20 +11,22 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.src.main.RestaurantType
+import com.example.risingtest.src.main.home.models.CategoryResult
 import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 //  adapter.notifyDataSetChanged() 데이터 리스트 변화있을때 이거하면 업데이트 된다.
 
 
 class RestaurantTypeAdapter(): RecyclerView.Adapter<RestaurantTypeAdapter.ViewHolder>() {
-    var dataSet = mutableListOf<RestaurantType>()
+    var dataSet = listOf<CategoryResult>()
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
 
         val textView: TextView = view.findViewById(R.id.item_restaurant_type_text)
         val imageView: ImageView = view.findViewById(R.id.item_restaurant_type_image)
-        fun setItemInfo(restaurantType: RestaurantType){
-            textView.text = restaurantType.name
-            imageView.setImageResource(restaurantType.resId)  // 나중에 uri 로 고쳐서 서버연동하면될듯
+        fun setItemInfo(restaurantType: CategoryResult){
+            textView.text = restaurantType.categoryName
+            //imageView.setImageResource(restaurantType.)
+            imageView.setImageResource(R.drawable.round_png_type1) //일단 이미지 더미로
         }
 
         init {

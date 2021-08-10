@@ -4,10 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class HomeResult(
 
-    @SerializedName("userId") val userId : Int,
-    @SerializedName("defaultAddressId") val defaultAddressId : Int,
-    @SerializedName("homeAddress") val homeAddress : String,
-    @SerializedName("eupMyeonDongCode") val eupMyeonDongCode : Int,
-    @SerializedName("userLatitue") val userLatitue : Double,
-    @SerializedName("userHardness") val userHardness : Double
+    @SerializedName("homeUserAddressResult") val homeUserAddressResult : List<HomeUserAddressResult>,
+    @SerializedName("eventResult") val eventResult : List<EventResult>,
+    @SerializedName("categoryResult") val categoryResult : List<CategoryResult>,
+    @SerializedName("homeRestResult") val homeRestResult : List<List<HomeRestResult>>
 )

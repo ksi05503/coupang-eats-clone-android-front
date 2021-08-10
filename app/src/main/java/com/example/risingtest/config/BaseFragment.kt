@@ -50,4 +50,7 @@ abstract class BaseFragment<B : ViewBinding>(
             mLoadingDialog.dismiss()
         }
     }
+    fun checkIsLogin() : Boolean {
+        return !ApplicationClass.sSharedPreferences.getString("MY_JWT","").isNullOrBlank()
+    }
 }

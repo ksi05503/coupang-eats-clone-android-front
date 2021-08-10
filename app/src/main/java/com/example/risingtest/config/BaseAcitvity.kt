@@ -41,6 +41,8 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
     fun showCustomToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
+    fun checkIsLogin() : Boolean {
+        return !ApplicationClass.sSharedPreferences.getString("MY_JWT","").isNullOrBlank()
+    }
 
 }

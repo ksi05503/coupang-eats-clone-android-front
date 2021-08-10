@@ -1,23 +1,37 @@
 package com.example.risingtest.src.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.risingtest.R
+import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
 import com.example.risingtest.src.main.RestaurantProfileData
 import com.example.risingtest.src.main.RestaurantType
+import com.example.risingtest.src.main.home.models.CategoryResult
+import com.example.risingtest.src.main.home.models.HomeResponse
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home)    {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        if(checkIsLogin()){
+            HomeService(this).tryGetHome(ApplicationClass.sSharedPreferences.getInt("MY_USERID", 0))
+            Log.d("homeSPSPSP","현재 내 id:${ApplicationClass.sSharedPreferences.getInt("MY_USERID",0)}")
 
-        val restaurantTypeAdapter = RestaurantTypeAdapter()
-        restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
-        binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+        }else{
+            //비로그인시 어쩔랭
+            Log.d("homeSPSPSP","비로그인상태")
+            HomeService(this).tryGetHome(15)
+
+        }
+
+
+
+
 
         val restaurantProfileAdapter = RestaurantProfileAdapter()
         restaurantProfileAdapter.dataSet = setRestaurantProfileDummyData()
@@ -32,6 +46,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
 
     }
+
 
     private fun setRestaurantNewProfileDummyData(): MutableList<RestaurantProfileData> {
         var dataList = mutableListOf<RestaurantProfileData>()
@@ -59,21 +74,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         return dataList
     }
 
-    fun setRestaurantTypeDummyData(): MutableList<RestaurantType>{
-        var dataList =  mutableListOf<RestaurantType>()
 
-        dataList.add(RestaurantType(R.drawable.round_png_type1,"신규 맛집"))
-        dataList.add(RestaurantType(R.drawable.round_png_type2,"1인분"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-        dataList.add(RestaurantType(R.drawable.round_png_type3,"한식"))
-
-        return dataList
-    }
 
     fun setRestaurantProfileDummyData(): MutableList<RestaurantProfileData>{
         var dataList = mutableListOf<RestaurantProfileData>()
@@ -88,6 +89,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
         return dataList
 
+    }
+
+    override fun onGetHomeSuccess(response: HomeResponse) {
+        Log.d("Okhttp",response.message.toString())
+
+        val restaurantTypeAdapter = RestaurantTypeAdapter()
+        restaurantTypeAdapter.dataSet = response.result.categoryResult
+        binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+
+    }
+
+    override fun onGetHomeFailure(message: String) {
+        Log.d("Okhttp", "실패 : $message")
     }
 
 

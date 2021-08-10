@@ -81,7 +81,4 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
             })
     }
 
-    fun checkIsLogin() : Boolean {
-        return !ApplicationClass.sSharedPreferences.getString("MY_JWT","").isNullOrBlank()
-    }
 }
