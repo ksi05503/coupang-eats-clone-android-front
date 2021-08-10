@@ -17,6 +17,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRestaurantFilterClickListener()
+
 
         if(checkIsLogin()){
             HomeService(this).tryGetHome(ApplicationClass.sSharedPreferences.getInt("MY_USERID", 0))
@@ -45,6 +47,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         restaurantNewProfileAdapter.dataSet = setRestaurantNewProfileDummyData()
         binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
 
+    }
+
+    private fun initRestaurantFilterClickListener() {
+        binding.apply{
+            homeLayoutSortType.setOnClickListener {
+
+            }
+        }
     }
 
 
