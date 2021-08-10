@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/menu_main_btm_nav_home"
-        android:icon="@drawable/ic_baseline_home_24"
+        android:icon="@drawable/home_icon_png_2"
         app:showAsAction="always"
         android:enabled="true"
         android:checkable="true"
@@ -23,14 +23,14 @@
         android:title="@string/main_btm_nav_favorites" />
     <item
         android:id="@+id/menu_main_btm_nav_orders"
-        android:icon="@drawable/ic_baseline_fact_check_24"
+        android:icon="@drawable/orders_icon_png"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_orders" />
 
     <item
         android:id="@+id/menu_main_btm_nav_my_eats"
-        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:icon="@drawable/my_eats_icon_png"
         app:showAsAction="always"
         android:enabled="true"
         android:title="@string/main_btm_nav_my_eats" />
