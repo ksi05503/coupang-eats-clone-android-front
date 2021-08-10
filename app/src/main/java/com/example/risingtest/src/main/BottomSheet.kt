@@ -12,8 +12,11 @@ import com.example.risingtest.src.main.login.LoginActivity
 import com.example.risingtest.src.main.signup.SignUpActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BottomSheet  : BottomSheetDialogFragment() {
+class BottomSheet(version: Int)  : BottomSheetDialogFragment() {
 
+    // 0: 로그인
+    // 1: 배달비
+    val version = version
     //  lateinit var binding: DialogBottomLoginBinding
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +24,13 @@ class BottomSheet  : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.dialog_bottom_login, container, false)
+        if(version==0){
+            return inflater.inflate(R.layout.dialog_bottom_login, container, false)
+        }else if(version ==1){
+            return inflater.inflate(R.layout.dialog_bottom_delivery_fee, container, false)
+        }else{
+            return inflater.inflate(R.layout.dialog_bottom_login, container, false)
+        }
     }
 
 

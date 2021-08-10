@@ -1,5 +1,7 @@
 package com.example.risingtest.src.main.home
 
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -7,6 +9,8 @@ import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
+import com.example.risingtest.src.main.BottomSheet
+import com.example.risingtest.src.main.MainActivity
 import com.example.risingtest.src.main.RestaurantProfileData
 import com.example.risingtest.src.main.RestaurantType
 import com.example.risingtest.src.main.home.models.CategoryResult
@@ -14,11 +18,14 @@ import com.example.risingtest.src.main.home.models.HomeResponse
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
 
+    private val filterArray = arrayOf(false,false,false,false,false)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         initRestaurantFilterClickListener()
 
+/*
 
         if(checkIsLogin()){
             HomeService(this).tryGetHome(ApplicationClass.sSharedPreferences.getInt("MY_USERID", 0))
@@ -31,7 +38,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         }
 
-
+*/
+        val restaurantTypeAdapter = RestaurantTypeAdapter()
+        restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
+        binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
 
 
 
@@ -49,15 +59,56 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     }
 
+
+
     private fun initRestaurantFilterClickListener() {
         binding.apply{
-            homeLayoutSortType.setOnClickListener {
 
+
+            val white_int = Color.parseColor("#FFFFFFFF")
+            val lightblue_int = Color.parseColor("#00A6FF")
+            val black_int = Color.parseColor("#FF000000")
+
+            homeLayoutSortType.setOnClickListener {  //filterArray[0]
+            }
+            homeLayoutCheetah.setOnClickListener {  //filterArray[1]
+                if(filterArray[1] == false){
+                    homeLayoutCheetah.setBackgroundResource(R.drawable.border_shape_selected)
+                    homeTextCheetah.setTextColor(white_int)
+                }else{
+                    homeLayoutCheetah.setBackgroundResource(R.drawable.border_shape_2)
+                    homeTextCheetah.setTextColor(black_int)
+                }
+                filterArray[1] = !filterArray[1]
+            }
+            homeLayoutCharge.setOnClickListener {
+
+                val bottomSheet= BottomSheet(1)
+                bottomSheet.show(fragmentManager!!, bottomSheet.tag)
+
+            }
+            homeLayoutLeastCost.setOnClickListener {
+
+            }
+            homeLayoutCoupon.setOnClickListener {
+                if(filterArray[4] == false){
+                    homeLayoutCoupon.setBackgroundResource(R.drawable.border_shape_selected)
+                    homeTextCoupon.setTextColor(white_int)
+                }else{
+                    homeLayoutCoupon.setBackgroundResource(R.drawable.border_shape_2)
+                    homeTextCoupon.setTextColor(black_int)
+                }
+                filterArray[4] = !filterArray[4]
             }
         }
     }
 
+    private fun setRestaurantTypeDummyData(): List<CategoryResult> {
+        var dataList = listOf<CategoryResult>(CategoryResult("a","a"),CategoryResult("a","a"))
 
+        return dataList
+
+    }
     private fun setRestaurantNewProfileDummyData(): MutableList<RestaurantProfileData> {
         var dataList = mutableListOf<RestaurantProfileData>()
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"피자헛 건대점","4.1","0","1.3km","2000원"))

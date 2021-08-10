@@ -18,6 +18,7 @@
     <color name="redForText">#d9534f</color>
 
     <color name="heavyBlue">#CE0040FF</color>
+    <color name="selectedBlue">#0086FF</color>
     <color name="lightBlue">#00A6FF</color>
     <color name="lightGray">#EFEFEF</color>
 

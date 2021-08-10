@@ -18,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
         binding.mainBtmNav.setOnNavigationItemSelectedListener(
             BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -53,7 +54,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
                             return@OnNavigationItemSelectedListener true
                         }else{
                             //bottom sheet 로그인 다이얼로그 띄우기
-                            val bottomSheet = BottomSheet()
+                            val bottomSheet = BottomSheet(0)
                             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
                         }
 
@@ -67,7 +68,7 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
                             return@OnNavigationItemSelectedListener true
                         }else{
                             //bottom sheet 로그인 다이얼로그 띄우기
-                            val bottomSheet = BottomSheet()
+                            val bottomSheet = BottomSheet(0)
                             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
 
                         }
