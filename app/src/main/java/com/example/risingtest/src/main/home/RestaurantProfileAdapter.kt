@@ -10,11 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.src.main.RestaurantProfileData
+import com.example.risingtest.src.main.home.models.HomeRestResult
 import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.ViewHolder>() {
 
-    var dataSet = mutableListOf<RestaurantProfileData>()
+    var dataSet = listOf<HomeRestResult>()
 
 
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
@@ -26,9 +27,9 @@ class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.Vi
         val textViewDistance : TextView = view.findViewById(R.id.item_text_restaurant_distance)
         val textViewCharge : TextView = view.findViewById(R.id.item_text_restaurant_charge)
 
-        fun setItemInfo(restaurantProfileData: RestaurantProfileData){
+        fun setItemInfo(homeRestResult: HomeRestResult){
 
-            if(restaurantProfileData.review_num == "0"){
+            if(homeRestResult.count_review == 0){
                 textViewGrade.visibility = View.GONE
                 imageViewStar.visibility = View.GONE
                 textViewReviewCount.visibility = View.GONE
@@ -38,12 +39,13 @@ class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.Vi
                 textViewReviewCount.visibility = View.VISIBLE
             }
 
-            imageView.setImageResource(restaurantProfileData.resId)
-            textViewName.text = restaurantProfileData.name
-            textViewGrade.text = restaurantProfileData.grade
-            textViewReviewCount.text = "(${restaurantProfileData.review_num})"
-            textViewDistance.text = restaurantProfileData.distance
-            textViewCharge.text = restaurantProfileData.charge
+            imageView.setImageResource(R.drawable.restaurant_image_2) //임시
+
+            textViewName.text = homeRestResult.restName
+            textViewGrade.text = homeRestResult.star.toString()
+            textViewReviewCount.text = "(${homeRestResult.count_review})"
+            textViewDistance.text ="${homeRestResult.distance_KM.toString()}km"
+            textViewCharge.text = homeRestResult.deliveryFee
         }
 
         init {

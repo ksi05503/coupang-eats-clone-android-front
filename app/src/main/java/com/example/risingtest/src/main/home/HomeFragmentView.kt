@@ -6,4 +6,7 @@ interface HomeFragmentView {
 
     fun onGetHomeSuccess(response: HomeResponse)
     fun onGetHomeFailure(message:String)
+
+    fun onGetHomeNonLoginSuccess(response: HomeResponse)
+    fun onGetHomeNonLoginFailure(message: String)
 }

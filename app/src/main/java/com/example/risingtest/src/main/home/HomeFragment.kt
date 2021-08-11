@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
@@ -34,14 +35,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         }else{
             //비로그인시 어쩔랭
+
+            HomeService(this).tryGetHomeNonLogin()
+            Log.d("homeSPSPSP","비로그인상태")
+
+
+
 /*
             Log.d("homeSPSPSP","비로그인상태")
             HomeService(this).tryGetHome(15)
 */
 
-            val restaurantTypeAdapter = RestaurantTypeAdapter()
+/*            val restaurantTypeAdapter = RestaurantTypeAdapter()
             restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
-            binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+            binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter*/
         }
 
 
@@ -53,21 +60,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
 
 
-        val restaurantProfileAdapter = RestaurantProfileAdapter()
-        restaurantProfileAdapter.dataSet = setRestaurantProfileDummyData()
-        binding.recyclerViewFranchise.adapter = restaurantProfileAdapter
+
 
         val couponAdapter = CouponAdapter()
         couponAdapter.dataSet = setCouponDummyData()
         binding.recyclerViewCoupon.adapter = couponAdapter
 
-        val restaurantNewProfileAdapter = RestaurantProfileAdapter()
-        restaurantNewProfileAdapter.dataSet = setRestaurantNewProfileDummyData()
-        binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
 
-        val restaurantFamousAdapter = RestaurantFamousAdapter()
-        restaurantFamousAdapter.dataSet = setRestaurantFamousDummyData()
-        binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+
 
     }
 
@@ -140,6 +140,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         return dataList
 
     }
+/*
     private fun setRestaurantNewProfileDummyData(): MutableList<RestaurantProfileData> {
         var dataList = mutableListOf<RestaurantProfileData>()
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"피자헛 건대점","4.1","0","1.3km","2000원"))
@@ -153,6 +154,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         return dataList
     }
+*/
 
     private fun setCouponDummyData(): MutableList<Int> {
         var dataList = mutableListOf<Int>()
@@ -168,7 +170,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
 
 
-    fun setRestaurantProfileDummyData(): MutableList<RestaurantProfileData>{
+/*    fun setRestaurantProfileDummyData(): MutableList<RestaurantProfileData>{
         var dataList = mutableListOf<RestaurantProfileData>()
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_2,"버거킹 군자능동점","4.5","1394","0.9km","무료배달"))
@@ -181,7 +183,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         dataList.add(RestaurantProfileData(R.drawable.restaurant_image_1,"형제닭발 건대점","4.7","12","0.3km","무료배달"))
         return dataList
 
-    }
+    }*/
 
     override fun onGetHomeSuccess(response: HomeResponse) {
         Log.d("Okhttp",response.message.toString())
@@ -190,9 +192,63 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         restaurantTypeAdapter.dataSet = response.result.categoryResult
         binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
 
+        val imageUrlAd1 = response.result.eventResult.get(0).eventImageUrl
+        Glide.with(this)
+            .load(imageUrlAd1)
+            .into(binding.homeAd1)
+
+
+        //인기프랜차이즈
+        val restaurantProfileAdapter = RestaurantProfileAdapter()
+        restaurantProfileAdapter.dataSet = response.result.homeRestResult[0]
+        binding.recyclerViewFranchise.adapter = restaurantProfileAdapter
+
+        //새로들어왔어요
+        val restaurantNewProfileAdapter = RestaurantProfileAdapter()
+        restaurantNewProfileAdapter.dataSet = response.result.homeRestResult[1]
+        binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
+
+        //골라먹는맛집
+        val restaurantFamousAdapter = RestaurantFamousAdapter()
+        restaurantFamousAdapter.dataSet = response.result.homeRestResult[2]
+        binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+
     }
 
     override fun onGetHomeFailure(message: String) {
+        Log.d("Okhttp", "실패 : $message")
+    }
+
+    override fun onGetHomeNonLoginSuccess(response: HomeResponse) {
+        Log.d("Okhttp",response.message.toString())
+
+        val restaurantTypeAdapter = RestaurantTypeAdapter()
+        restaurantTypeAdapter.dataSet = response.result.categoryResult
+        binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+
+        val imageUrlAd1 = response.result.eventResult.get(0).eventImageUrl
+        Glide.with(this)
+            .load(imageUrlAd1)
+            .into(binding.homeAd1)
+
+
+        //인기프랜차이즈
+        val restaurantProfileAdapter = RestaurantProfileAdapter()
+        restaurantProfileAdapter.dataSet = response.result.homeRestResult[0]
+        binding.recyclerViewFranchise.adapter = restaurantProfileAdapter
+
+        //새로들어왔어요
+        val restaurantNewProfileAdapter = RestaurantProfileAdapter()
+        restaurantNewProfileAdapter.dataSet = response.result.homeRestResult[1]
+        binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
+
+        //골라먹는맛집
+        val restaurantFamousAdapter = RestaurantFamousAdapter()
+        restaurantFamousAdapter.dataSet = response.result.homeRestResult[2]
+        binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+    }
+
+    override fun onGetHomeNonLoginFailure(message: String) {
         Log.d("Okhttp", "실패 : $message")
     }
 

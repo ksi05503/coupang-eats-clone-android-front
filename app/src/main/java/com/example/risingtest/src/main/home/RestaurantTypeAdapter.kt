@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.home
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.src.main.RestaurantType
 import com.example.risingtest.src.main.home.models.CategoryResult
@@ -25,9 +27,13 @@ class RestaurantTypeAdapter(): RecyclerView.Adapter<RestaurantTypeAdapter.ViewHo
         val imageView: ImageView = view.findViewById(R.id.item_restaurant_type_image)
         fun setItemInfo(restaurantType: CategoryResult){
             textView.text = restaurantType.categoryName
+            Glide.with(imageView.context)
+                .load(restaurantType.categoryImageUrl)
+                .into(imageView)
             //imageView.setImageResource(restaurantType.)
-            imageView.setImageResource(R.drawable.round_png_type1) //일단 이미지 더미로
+            //imageView.setImageResource(R.drawable.round_png_type1) //일단 이미지 더미로
         }
+
 
         init {
 

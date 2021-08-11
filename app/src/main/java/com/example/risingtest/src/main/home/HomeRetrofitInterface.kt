@@ -9,4 +9,7 @@ interface HomeRetrofitInterface {
 
     @GET("/app/users/{userId}/restarurants")
     fun getHome(@Path("userId") userId:Int) : Call<HomeResponse>
+
+    @GET("/app/users/restarurants")
+    fun getHomeNonLogin() : Call<HomeResponse>
 }
