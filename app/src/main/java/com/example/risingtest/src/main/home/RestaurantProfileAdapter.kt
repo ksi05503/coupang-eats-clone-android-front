@@ -44,8 +44,12 @@ class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.Vi
             textViewName.text = homeRestResult.restName
             textViewGrade.text = homeRestResult.star.toString()
             textViewReviewCount.text = "(${homeRestResult.count_review})"
-            textViewDistance.text ="${homeRestResult.distance_KM.toString()}km"
-            textViewCharge.text = homeRestResult.deliveryFee
+            textViewDistance.text ="${homeRestResult.distance_KM}km"
+            if(homeRestResult.deliveryFee == "무료")
+                textViewCharge.text = "무료배달"
+            else
+                textViewCharge.text = homeRestResult.deliveryFee
+
         }
 
         init {

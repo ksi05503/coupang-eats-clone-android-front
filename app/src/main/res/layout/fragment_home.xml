@@ -60,11 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="horizontal" />
+                android:orientation="horizontal"
+                android:layout_marginBottom="7dp"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
+                android:layout_height="3dp"
                 android:background="@color/lightGray" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,8 +79,8 @@
                     android:padding="3dp"
                     android:text="인기 프랜차이즈"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:layout_marginTop="18dp"
+                    android:textSize="18dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="18dp"
                     android:layout_marginBottom="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -87,8 +88,8 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_marginEnd="16dp"
                     android:backgroundTint="@color/white"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
@@ -106,27 +107,21 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@color/lightGray" />
+
             <ImageView
                 android:layout_width="410dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:src="@drawable/ad_2cm_9cm" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@color/lightGray" />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="14dp"
                 android:padding="5dp"
                 android:text="기간한정 할인쿠폰"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
@@ -140,10 +135,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="14dp"
                 android:padding="5dp"
                 android:text="새로 들어왔어요!"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
             <androidx.recyclerview.widget.RecyclerView
@@ -151,16 +146,17 @@
                 android:layout_marginLeft="18dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="14dp"
                 android:padding="5dp"
                 android:text="골라먹는 맛집"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
 
@@ -172,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginTop="3dp"
                     >
 
                     <androidx.constraintlayout.widget.ConstraintLayout

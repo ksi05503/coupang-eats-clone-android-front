@@ -16,12 +16,14 @@
         tools:srcCompat="@tools:sample/avatars" />
     <TextView
         android:id="@+id/item_text_restaurant_name"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:text="식당 이름"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18dp"
+        android:layout_marginTop="6dp"
+        android:textSize="16dp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
     <LinearLayout
@@ -39,31 +41,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5.0"
-            android:textSize="14dp"
+            android:textSize="12dp"
+            android:textColor="@color/black"
             android:layout_marginHorizontal="1dp"/>
         <TextView
             android:id="@+id/item_text_restaurant_review_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="(0)"
-            android:textSize="14dp"/>
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
         <TextView
             android:id="@+id/item_text_restaurant_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
-            android:text="0.9km"
-            android:textSize="14dp"/>
+            android:text="0.0km"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
 
     </LinearLayout>
     <TextView
         android:id="@+id/item_text_restaurant_charge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
         android:layout_marginLeft="7dp"
         android:text="무료배달"
-        android:textSize="13dp"/>
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        android:layout_marginBottom="7dp"/>
 
 
 </LinearLayout>
