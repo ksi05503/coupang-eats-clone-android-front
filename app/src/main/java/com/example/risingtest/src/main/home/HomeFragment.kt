@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.home
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.example.risingtest.src.main.RestaurantType
 import com.example.risingtest.src.main.home.models.CategoryResult
 import com.example.risingtest.src.main.home.models.HomeResponse
 import com.example.risingtest.src.main.home.models.HomeRestResult
+import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
 
@@ -25,7 +27,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         super.onViewCreated(view, savedInstanceState)
 
 
+        //임시 방편 (지워라 나중에)
+        binding.homeAd1.setOnClickListener {
+            val i  = Intent(view.context,RestaurantActivity::class.java)
+            startActivity(i)
+        }
+
+
         initRestaurantFilterClickListener()
+
 
 
 

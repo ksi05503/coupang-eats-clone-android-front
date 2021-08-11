@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.src.main.home.models.HomeRestResult
 import com.example.risingtest.src.main.restaurant.RestaurantActivity
@@ -37,7 +38,11 @@ class RestaurantFamousAdapter: RecyclerView.Adapter<RestaurantFamousAdapter.View
             }
             deliveryCost.text = tempStringDeliveryCost
 
-            image.setImageResource(R.drawable.restaurant_famous) //일단 이미지 더미로
+
+            Glide.with(image.context)
+                .load(homeRestResult.repRestImageUrl)
+                .into(image)
+           // image.setImageResource(R.drawable.restaurant_famous) //일단 이미지 더미로
         }
 
         init {
