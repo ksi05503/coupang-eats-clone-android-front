@@ -1,12 +1,15 @@
 package com.example.risingtest.src.main.login
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import androidx.core.app.ActivityCompat
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityLoginBinding
+import com.example.risingtest.src.main.MainActivity
 import com.example.risingtest.src.main.login.models.LoginResponse
 import com.example.risingtest.src.main.login.models.PostLoginRequest
 
@@ -53,8 +56,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
  //       Log.d("SPSPSP", ApplicationClass.sSharedPreferences.getString("MY_JWT","")!!)
 
-
-        finish()
+        //모든액티비티 없애고 메인액티비티 다시 띄움(즉 앱 재시작과 같다)
+        val i = Intent(this, MainActivity::class.java)
+        ActivityCompat.finishAffinity(this)
+        startActivity(i)
     }
 
     override fun onPostLoginFailure(message: String) {

@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         initRestaurantFilterClickListener()
 
-/*
+
 
         if(checkIsLogin()){
             HomeService(this).tryGetHome(ApplicationClass.sSharedPreferences.getInt("MY_USERID", 0))
@@ -34,15 +34,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         }else{
             //비로그인시 어쩔랭
+/*
             Log.d("homeSPSPSP","비로그인상태")
             HomeService(this).tryGetHome(15)
+*/
 
+            val restaurantTypeAdapter = RestaurantTypeAdapter()
+            restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
+            binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
         }
 
-*/
+
+/*
         val restaurantTypeAdapter = RestaurantTypeAdapter()
         restaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
         binding.recyclerViewRestaurantType.adapter = restaurantTypeAdapter
+*/
 
 
 
