@@ -8,10 +8,13 @@
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable-v24/ic_baseline_home_24.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable-v24/ic_baseline_person_outline_24.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable-v24/ic_baseline_search_24.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_blue.xml" value="0.16822916666666668" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_no.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_shape.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_shape_2.xml" value="0.240625" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_shape_3.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_shape_selected.xml" value="1.090625" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/border_sign.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.16822916666666668" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.16770833333333332" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/main_btm_nav_item_color.xml" value="0.14322916666666666" />
@@ -22,15 +25,15 @@
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/seekbar_thumb.xml" value="0.15729166666666666" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/drawable/selector_text_pressed.xml" value="0.240625" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_favorites.xml" value="0.24139492753623187" />
-        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_login.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_main.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_restaurant.xml" value="0.152" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_setting.xml" value="0.25" />
-        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_sign_up.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_delivery_fee.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_least_cost.xml" value="0.264" />
-        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_login.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_login.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_loading.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_favorites.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_home.xml" value="0.264" />

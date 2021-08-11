@@ -12,7 +12,7 @@
         android:text="로그인이필요합니다."
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="23dp"
+        android:textSize="25dp"
         />
 
     <TextView
@@ -27,23 +27,24 @@
         android:id="@+id/dialog_bottom_btn_app_login"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="14dp"
+        android:layout_marginHorizontal="20dp"
         android:text="쿠팡 앱으로 로그인"
-        android:textSize="15dp"
+        android:textSize="17dp"
         android:textColor="@color/white"
-        android:backgroundTint="@color/lightBlue"
+        android:background="@drawable/border_no"
         />
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
         android:id="@+id/dialog_bottom_btn_id_login"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="14dp"
+        android:layout_marginHorizontal="20dp"
         android:text="쿠팡 아이디로 로그인"
-        android:textSize="15dp"
+        android:textSize="17dp"
         android:textColor="@color/lightBlue"
-        android:backgroundTint="@color/white"
+        android:background="@drawable/border_blue"
         />
 
     <LinearLayout
@@ -70,6 +71,7 @@
         android:layout_marginTop="21dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:gravity="center"
         android:textSize="12dp"
         android:text="로그인하여 쿠팡이츠 서비스 이용약관, 위치기반서비스 이용약관, 쿠팡페이 서비스 이용약관, 쿠팡페이 전자금융거래약관, 쿠팡페이 개인정보수집이용, 쿠팡페이 개인정보제공에 동의합니다."

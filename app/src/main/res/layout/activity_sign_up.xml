@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/logo"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginVertical="26dp"
+        android:src="@drawable/coupang_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:layout_marginLeft="10dp"
         android:padding="10dp"
         android:text="회원정보를 입력해주세요"
+        android:textSize="13dp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,83 +47,108 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="10dp">
+            android:layout_marginVertical="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/border_sign">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_mail" />
 
             <EditText
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/edit_text_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="아이디(이메일)"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:background="@null"/>
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginVertical="4dp"
+            android:layout_marginBottom="2dp"
+
+            android:background="@drawable/border_sign">
 
             <ImageView
                 android:id="@+id/imageView3"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_psw" />
 
             <EditText
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/edit_text_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="비밀번호"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:background="@null"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginVertical="4dp"
+            android:layout_marginBottom="2dp"
+
+            android:background="@drawable/border_sign">
 
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_person" />
 
             <EditText
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/edit_text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="이름"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:background="@null"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp">
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="4dp"
+            android:background="@drawable/border_sign">
 
             <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_dialog_email" />
+                android:id="@+id/imageView6"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_phone" />
 
             <EditText
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/edit_text_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="휴대폰 번호"
-                android:padding="4dp" />
+                android:padding="4dp"
+                android:background="@null"/>
         </LinearLayout>
 
 
@@ -134,24 +161,54 @@
         android:padding="10dp"
         android:text="쿠팡 서비스약관에 동의해주세요"
         android:textColor="@color/black"
+        android:textSize="13dp"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="10dp" />
+        android:layout_marginLeft="12dp"
+         />
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            />
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/sign_up_btn"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="67dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="#CE0040FF"
         android:drawableTint="#CE0040FF"
-        android:text="동의하고 가입하기"
-        android:textColor="@color/white"
 
+        android:text="동의하고 가입하기"
+
+        android:textColor="@color/white"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coupang Corp. All rights reserved."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_btn"
+        app:layout_constraintVertical_bias="0.283" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
