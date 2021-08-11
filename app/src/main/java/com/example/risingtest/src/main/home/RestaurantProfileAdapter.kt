@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.home
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.src.main.RestaurantProfileData
+import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.ViewHolder>() {
 
@@ -47,6 +49,10 @@ class RestaurantProfileAdapter: RecyclerView.Adapter<RestaurantProfileAdapter.Vi
         init {
             view.setOnClickListener {
                 Log.d("RProfile recyclerView","뷰 눌렸습니다.")
+                //어댑터에서 인텐트로 startActivity쏠때는 앞에 컨텍스트가 붙어야함(어댑터호출하는 상위액티비티)
+                val i = Intent(view.context, RestaurantActivity::class.java)
+                view.context.startActivity(i)
+
             }
         }
     }

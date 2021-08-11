@@ -27,14 +27,16 @@
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_sign_up.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_delivery_fee.xml" value="0.264" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_least_cost.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_bottom_login.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/dialog_loading.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_favorites.xml" value="0.12708333333333333" />
-        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_home.xml" value="0.16" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_my_eats.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_orders.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/fragment_search.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_coupon.xml" value="0.25" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_famous.xml" value="0.4" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_profile.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_type.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_search_restaurant_type.xml" value="0.25" />

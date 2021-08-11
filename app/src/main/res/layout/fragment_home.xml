@@ -333,9 +333,15 @@
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
-
             </HorizontalScrollView>
+            <androidx.recyclerview.widget.RecyclerView
 
+                android:id="@+id/recycler_view_famous_restaurant"
+                android:layout_marginLeft="18dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical" />
 
         </LinearLayout>
 

@@ -16,6 +16,7 @@ class BottomSheet(version: Int)  : BottomSheetDialogFragment() {
 
     // 0: 로그인
     // 1: 배달비
+    // 2: 최소주문금액
     val version = version
     //  lateinit var binding: DialogBottomLoginBinding
     override fun onCreateView(
@@ -24,12 +25,14 @@ class BottomSheet(version: Int)  : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        if(version==0){
-            return inflater.inflate(R.layout.dialog_bottom_login, container, false)
+        return if(version==0){
+            inflater.inflate(R.layout.dialog_bottom_login, container, false)
         }else if(version ==1){
-            return inflater.inflate(R.layout.dialog_bottom_delivery_fee, container, false)
+            inflater.inflate(R.layout.dialog_bottom_delivery_fee, container, false)
+        }else if(version ==2){
+            inflater.inflate(R.layout.dialog_bottom_least_cost, container, false)
         }else{
-            return inflater.inflate(R.layout.dialog_bottom_login, container, false)
+            inflater.inflate(R.layout.dialog_bottom_login, container, false)
         }
     }
 

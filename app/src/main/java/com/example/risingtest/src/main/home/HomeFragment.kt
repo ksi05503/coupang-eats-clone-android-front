@@ -15,6 +15,7 @@ import com.example.risingtest.src.main.RestaurantProfileData
 import com.example.risingtest.src.main.RestaurantType
 import com.example.risingtest.src.main.home.models.CategoryResult
 import com.example.risingtest.src.main.home.models.HomeResponse
+import com.example.risingtest.src.main.home.models.HomeRestResult
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
 
@@ -57,8 +58,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         restaurantNewProfileAdapter.dataSet = setRestaurantNewProfileDummyData()
         binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
 
+        val restaurantFamousAdapter = RestaurantFamousAdapter()
+        restaurantFamousAdapter.dataSet = setRestaurantFamousDummyData()
+        binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+
     }
 
+    private fun setRestaurantFamousDummyData(): List<HomeRestResult> {
+        val data = listOf<HomeRestResult>(
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1),
+                HomeRestResult(0,0,"카츠곳간 킨텍스점","modify later","modify later","1000",4.9,14,1.1)
+        )
+        return data
+    }
 
 
     private fun initRestaurantFilterClickListener() {
@@ -88,7 +107,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
             }
             homeLayoutLeastCost.setOnClickListener {
-
+                val bottomSheet = BottomSheet(2)
+                bottomSheet.show(fragmentManager!!, bottomSheet.tag)
             }
             homeLayoutCoupon.setOnClickListener {
                 if(filterArray[4] == false){
@@ -104,7 +124,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }
 
     private fun setRestaurantTypeDummyData(): List<CategoryResult> {
-        var dataList = listOf<CategoryResult>(CategoryResult("a","a"),CategoryResult("a","a"))
+        var dataList = listOf<CategoryResult>(
+            CategoryResult("1인분","a"),
+            CategoryResult("한식","a"),
+            CategoryResult("한식","a"),
+            CategoryResult("한식","a")    )
 
         return dataList
 

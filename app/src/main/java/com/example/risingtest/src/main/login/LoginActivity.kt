@@ -47,6 +47,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         editor.putString("MY_PASSWORD", password)
         editor.putInt("MY_USERID", response.result.userId)
         editor.putString("MY_JWT", response.result.jwt)
+        editor.putString("X-ACCESS-TOKEN", response.result.jwt)
         editor.apply()
         Log.d("SPSPSP", "$userEmail,$password")
 
