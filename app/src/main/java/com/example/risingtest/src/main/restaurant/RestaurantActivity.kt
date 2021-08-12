@@ -73,6 +73,10 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
         binding.recyclerViewRestaurantMenu.adapter = restaurantMenuAdapter
 
 
+
+        Log.d("Okhttp123123","myjwt:${ApplicationClass.sSharedPreferences.getString("MY_JWT", "")}")
+
+
     }
 
     override fun onGetMenuFailure(message: String) {

@@ -11,6 +11,7 @@ import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
+import com.example.risingtest.src.cart.CartActivity
 import com.example.risingtest.src.main.BottomSheet
 import com.example.risingtest.src.main.MainActivity
 import com.example.risingtest.src.main.RestaurantProfileData
@@ -29,7 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
         //임시 방편 (지워라 나중에)
         binding.homeAd1.setOnClickListener {
-            val i  = Intent(view.context,RestaurantActivity::class.java)
+            val i  = Intent(view.context, CartActivity::class.java)
             startActivity(i)
         }
 

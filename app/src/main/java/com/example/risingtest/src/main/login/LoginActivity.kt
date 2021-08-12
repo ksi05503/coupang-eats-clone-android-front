@@ -30,6 +30,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
                 val password = "11111111"
 */
 
+                /*
+                test1@naver.com
+                fa1735fa
+                */
+
                 val postLoginRequest = PostLoginRequest(userEmail = userEmail, password = password)
                 showLoadingDialog(this@LoginActivity)
                 LoginService(this@LoginActivity).tryPostLogin(postLoginRequest)
