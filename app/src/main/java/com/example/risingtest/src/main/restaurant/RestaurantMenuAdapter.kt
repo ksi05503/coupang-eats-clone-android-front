@@ -16,6 +16,7 @@ import com.example.risingtest.src.main.restaurant.models.MenuResult
 
 class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHolder>() {
 
+    var restaurantActivityCartId = -1
     var dataSet = listOf<MenuResult>()
 
     class ViewHolder(view : View):RecyclerView.ViewHolder(view){
@@ -62,6 +63,11 @@ class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHol
         holder.itemView.setOnClickListener {
             val i = Intent(holder.itemView.context , CartActivity::class.java)
             i.putExtra("menuId",dataSet[position].menuId)
+
+            if(restaurantActivityCartId != -1){
+                i.putExtra("cartId",restaurantActivityCartId)
+                Log.d("Okhttp","cartId 넣어서 RA->CA / cartId: $restaurantActivityCartId")
+            }
             holder.itemView.context.startActivity(i)
         }
 

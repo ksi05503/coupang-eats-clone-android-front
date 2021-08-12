@@ -1,5 +1,6 @@
 package com.example.risingtest.src.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.example.risingtest.src.cart.models.NewCartResponse
 import com.example.risingtest.src.cart.models.PostAddMenuRequest
 import com.example.risingtest.src.cart.models.PostNewCartsRequest
 import com.example.risingtest.src.main.BottomSheet
+import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::inflate),CartActivityView{
     private var cartId = 0
@@ -30,7 +32,14 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
         CartService(this).tryGetDetailMenu(menuId)
 
 
-        if(checkIsLogin()){
+        if(intent.hasExtra("cartId")){
+            cartId = intent.getIntExtra("cartId",0)
+            Log.d("Okhttp","cartId getExtra 성공/ cartId : $cartId")
+
+        }
+        Log.d("Okhttp","CartActivity 생성/ cartId = $cartId")
+
+        if(checkIsLogin() && cartId <= 0 ){
             //카트생성한채로 메뉴 구경
             val postNewCartsRequest= PostNewCartsRequest(ApplicationClass.sSharedPreferences.getInt("MY_USERID",0),1)
             CartService(this).tryPostNewCart(postNewCartsRequest)
@@ -132,9 +141,23 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
 
     override fun onPostAddMenuSuccess(response: BaseResponse) {
         Log.d("Okhttp","${cartId}카트에 메뉴추가성공")
+        val i = Intent(this, RestaurantActivity::class.java)
+        i.putExtra("cartId", cartId)
+        finish()
+        startActivity(i)
+
     }
 
     override fun onPostAddMenuFailure(message: String) {
         Log.d("Okhttp",message)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cartId = 0
+        totalPrice =0
+        priceOfOne = 0
+        amount = 1
+        menuId = 1
     }
 }

@@ -11,8 +11,20 @@ import com.example.risingtest.src.main.restaurant.models.MenuResponse
 import com.example.risingtest.src.main.restaurant.models.MenuResult
 
 class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityRestaurantBinding::inflate),RestaurantActivityView {
+    var restaurantActivitycartId = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //생성된카트가있다면
+        if(intent.hasExtra("cartId")){
+            //카트보기 버튼 띄우기
+
+            //카트id 지정
+            restaurantActivitycartId = intent.getIntExtra("cartId", -1)
+            Log.d("Okhttp", "카트 존재하는상태 : $restaurantActivitycartId 번 카트")
+
+        }
+
 
         var restId = 1
 
@@ -20,7 +32,6 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
             restId = intent.getIntExtra("restId",1)
         }
 
-        //지금 id 15번에 더미가 없어서 볼수가없다.
         if(checkIsLogin()){
             RestaurantService(this).tryGetMenu(ApplicationClass.sSharedPreferences.getInt("MY_USERID", 0),restId)
 
@@ -71,6 +82,7 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
         val restaurantMenuAdapter = RestaurantMenuAdapter()
         restaurantMenuAdapter.dataSet = response.result.menuResult
         binding.recyclerViewRestaurantMenu.adapter = restaurantMenuAdapter
+        restaurantMenuAdapter.restaurantActivityCartId = restaurantActivitycartId
 
 
 
@@ -90,7 +102,9 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
         //메뉴 리사이클러뷰
         val restaurantMenuAdapter = RestaurantMenuAdapter()
         restaurantMenuAdapter.dataSet = response.result.menuResult
+        restaurantMenuAdapter.restaurantActivityCartId = restaurantActivitycartId
         binding.recyclerViewRestaurantMenu.adapter = restaurantMenuAdapter
+
 
         //식당정보
         binding.apply{
