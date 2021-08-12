@@ -1,8 +1,10 @@
 package com.example.risingtest.src.cart
 
 import com.example.risingtest.config.ApplicationClass
+import com.example.risingtest.config.BaseResponse
 import com.example.risingtest.src.cart.models.DetailMenuResponse
 import com.example.risingtest.src.cart.models.NewCartResponse
+import com.example.risingtest.src.cart.models.PostAddMenuRequest
 import com.example.risingtest.src.cart.models.PostNewCartsRequest
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,5 +42,21 @@ class CartService(val view: CartActivityView) {
             }
 
             })
+    }
+
+    fun tryPostAddMenu(postAddMenuRequest: PostAddMenuRequest){
+
+        val cartRetrofitInterface = ApplicationClass.sRetrofit.create(CartRetrofitInterface::class.java)
+        cartRetrofitInterface.postAddMenu(postAddMenuRequest).enqueue(object :
+            Callback<BaseResponse> {
+            override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
+                view.onPostAddMenuSuccess(response.body() as BaseResponse)
+            }
+
+            override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
+                view.onPostAddMenuFailure(t.message ?: "통신 오류")
+            }
+        })
+
     }
 }

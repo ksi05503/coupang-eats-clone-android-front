@@ -1,7 +1,9 @@
 package com.example.risingtest.src.cart
 
+import com.example.risingtest.config.BaseResponse
 import com.example.risingtest.src.cart.models.DetailMenuResponse
 import com.example.risingtest.src.cart.models.NewCartResponse
+import com.example.risingtest.src.cart.models.PostAddMenuRequest
 import com.example.risingtest.src.cart.models.PostNewCartsRequest
 import retrofit2.Call
 import retrofit2.http.Body
@@ -15,4 +17,7 @@ interface CartRetrofitInterface {
 
     @GET("/app/restaurants/menu/{menuId}")
     fun getDetailMenu(@Path("menuId")menuId:Int) :Call<DetailMenuResponse>
+
+    @POST("/app/carts")
+    fun postAddMenu(@Body params: PostAddMenuRequest): Call<BaseResponse>
 }

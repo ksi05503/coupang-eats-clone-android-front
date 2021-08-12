@@ -46,4 +46,5 @@ class DetailMenuAdapter : RecyclerView.Adapter<DetailMenuAdapter.ViewHolder>()  
     }
 
 
+
 }
