@@ -3,10 +3,12 @@ package com.example.risingtest.src.main.restaurant
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.bumptech.glide.Glide
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityRestaurantBinding
+import com.example.risingtest.src.main.payment.PaymentActivity
 import com.example.risingtest.src.main.restaurant.models.MenuResponse
 import com.example.risingtest.src.main.restaurant.models.MenuResult
 
@@ -14,14 +16,18 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
     var restaurantActivitycartId = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        initBtnClickListener()
+        binding.btnShowCart.visibility = View.GONE
         //생성된카트가있다면
         if(intent.hasExtra("cartId")){
             //카트보기 버튼 띄우기
-
+            binding.btnShowCart.visibility = View.VISIBLE
+            binding.restaurantActivityBottomPrice.text = "${intent.getIntExtra("totalPrice",0)}원"
             //카트id 지정
             restaurantActivitycartId = intent.getIntExtra("cartId", -1)
             Log.d("Okhttp", "카트 존재하는상태 : $restaurantActivitycartId 번 카트")
+
+        }else{
 
         }
 
@@ -41,6 +47,16 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
 /*            val restaurantMenuAdapter = RestaurantMenuAdapter()
             restaurantMenuAdapter.dataSet = setRestaurantMenuDummyData()
             binding.recyclerViewRestaurantMenu.adapter = restaurantMenuAdapter*/
+    }
+
+
+    private fun initBtnClickListener() {
+        binding.btnShowCart.setOnClickListener {
+            //결제액티비티로 이동
+            val i = Intent(this, PaymentActivity::class.java)
+            i.putExtra("cartId", restaurantActivitycartId)
+            startActivity(i)
+        }
     }
 
     private fun setRestaurantMenuDummyData(): List<MenuResult> {

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest">
         <activity
+            android:name=".src.main.payment.PaymentActivity"
+            android:exported="true" />
+        <activity
             android:name=".src.cart.CartActivity"
             android:exported="true" />
         <activity

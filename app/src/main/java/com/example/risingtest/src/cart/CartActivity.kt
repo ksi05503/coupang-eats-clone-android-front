@@ -21,12 +21,14 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
     private var priceOfOne = 0
     private var amount = 1
     private var menuId = 1
+    private var restId = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initBtnClickListener()
 
         if(intent.hasExtra("menuId")){
-            menuId = intent.getIntExtra("restId",1)
+            menuId = intent.getIntExtra("menuId",1)
         }
 
         CartService(this).tryGetDetailMenu(menuId)
@@ -112,6 +114,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
     override fun onGetDetailMenuSuccess(response: DetailMenuResponse) {
         Log.d("Okhttp","detail메뉴 성공: ${response.result.restAdditionalMenuResult.size}개의 세부메뉴")
 
+        restId = response.result.restMenuResult[0].restId
         val detailMenuAdapter = DetailMenuAdapter()
         detailMenuAdapter.dataSet = response.result.restAdditionalMenuResult
         binding.recyclerViewDetailMenu.adapter = detailMenuAdapter
@@ -143,6 +146,8 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
         Log.d("Okhttp","${cartId}카트에 메뉴추가성공")
         val i = Intent(this, RestaurantActivity::class.java)
         i.putExtra("cartId", cartId)
+        i.putExtra("totalPrice",totalPrice)
+        i.putExtra("restId",restId)
         finish()
         startActivity(i)
 

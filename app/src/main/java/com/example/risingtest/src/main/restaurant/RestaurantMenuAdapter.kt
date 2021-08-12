@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.risingtest.R
 import com.example.risingtest.src.cart.CartActivity
 import com.example.risingtest.src.main.restaurant.models.MenuResult
@@ -30,10 +31,18 @@ class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHol
             name.text = menuResult.menuName
             detail.text = menuResult.menuInfo
             price.text = menuResult.menuprice
-            image.setImageResource(R.drawable.restaurant_image_1)
-/*            Glide.with(image.context)
-                .load(menuResult.menuImageUrl)
-                .into(image)*/
+            if(menuResult.menuImageUrl == null){
+                image.visibility = View.GONE
+            }else{
+                image.visibility = View.VISIBLE
+                Glide.with(image.context)
+                    .load(menuResult.menuImageUrl)
+                    .apply(
+                        RequestOptions().override(295, 295).centerCrop()
+                    )
+                    .into(image)
+            }
+
 
         }
 
