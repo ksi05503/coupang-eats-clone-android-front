@@ -187,6 +187,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_add_cart"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/border_no"

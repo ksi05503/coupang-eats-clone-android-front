@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
+import com.example.risingtest.src.cart.CartActivity
 import com.example.risingtest.src.main.restaurant.models.MenuResult
 
 class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHolder>() {
@@ -36,13 +38,13 @@ class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHol
 
 
         init {
-
+/*
             view.setOnClickListener {
-/*                //어댑터에서 인텐트로 startActivity쏠때는 앞에 컨텍스트가 붙어야함(어댑터호출하는 상위액티비티)
+*//*                //어댑터에서 인텐트로 startActivity쏠때는 앞에 컨텍스트가 붙어야함(어댑터호출하는 상위액티비티)
                 val i = Intent(view.context, RestaurantActivity::class.java)
-                view.context.startActivity(i)*/
+                view.context.startActivity(i)*//*
 
-            }
+            }*/
         }
     }
     override fun onCreateViewHolder(
@@ -55,7 +57,15 @@ class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHol
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = dataSet.get(position)
-        holder.setItemInfo(data)    }
+        holder.setItemInfo(data)
+
+        holder.itemView.setOnClickListener {
+            val i = Intent(holder.itemView.context , CartActivity::class.java)
+            i.putExtra("menuId",dataSet[position].menuId)
+            holder.itemView.context.startActivity(i)
+        }
+
+    }
 
     override fun getItemCount(): Int {
         return dataSet.size

@@ -8,12 +8,18 @@ import com.example.risingtest.databinding.ActivityCartBinding
 import com.example.risingtest.src.cart.models.DetailMenuResponse
 import com.example.risingtest.src.cart.models.NewCartResponse
 import com.example.risingtest.src.cart.models.PostNewCartsRequest
+import com.example.risingtest.src.main.BottomSheet
 
 class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::inflate),CartActivityView{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        CartService(this).tryGetDetailMenu(1)
+        var menuId = 1
+        if(intent.hasExtra("menuId")){
+            menuId = intent.getIntExtra("restId",1)
+        }
+
+        CartService(this).tryGetDetailMenu(menuId)
 
 
         if(checkIsLogin()){
@@ -23,6 +29,21 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
 
         }else{
             //비로그인은 세부메뉴창에들어와도 카트생성API를 사용하지 않음 (조회만하는거)
+        }
+
+
+        binding.btnAddCart.setOnClickListener {
+
+            if(checkIsLogin()){
+                //비로소 카트에 담기는것
+
+            }else{
+                //로그인 바텀다이얼로그 띄우기
+
+                //bottom sheet 로그인 다이얼로그 띄우기
+                val bottomSheet = BottomSheet(0)
+                bottomSheet.show(supportFragmentManager, bottomSheet.tag)
+            }
         }
 
 
