@@ -13,10 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RisingTest">
         <activity
+            android:name="com.example.risingtest.src.main.delivery.DeliveryActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".src.main.payment.PaymentActivity"
             android:exported="true" />
         <activity
-            android:name=".src.cart.CartActivity"
+            android:name="com.example.risingtest.src.main.cart.CartActivity"
             android:exported="true" />
         <activity
             android:name=".src.main.restaurant.RestaurantActivity"
@@ -42,6 +46,7 @@
         <activity
             android:name=".src.main.MainActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>

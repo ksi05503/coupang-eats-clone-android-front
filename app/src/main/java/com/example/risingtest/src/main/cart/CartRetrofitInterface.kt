@@ -1,10 +1,10 @@
-package com.example.risingtest.src.cart
+package com.example.risingtest.src.main.cart
 
 import com.example.risingtest.config.BaseResponse
-import com.example.risingtest.src.cart.models.DetailMenuResponse
-import com.example.risingtest.src.cart.models.NewCartResponse
-import com.example.risingtest.src.cart.models.PostAddMenuRequest
-import com.example.risingtest.src.cart.models.PostNewCartsRequest
+import com.example.risingtest.src.main.cart.models.DetailMenuResponse
+import com.example.risingtest.src.main.cart.models.NewCartResponse
+import com.example.risingtest.src.main.cart.models.PostAddMenuRequest
+import com.example.risingtest.src.main.cart.models.PostNewCartsRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

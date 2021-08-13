@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.risingtest.R
-import com.example.risingtest.src.cart.CartActivity
+import com.example.risingtest.src.main.cart.CartActivity
 import com.example.risingtest.src.main.restaurant.models.MenuResult
 
 class RestaurantMenuAdapter : RecyclerView.Adapter<RestaurantMenuAdapter.ViewHolder>() {

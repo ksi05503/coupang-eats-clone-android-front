@@ -90,10 +90,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
-                android:tint="@color/black"/>
+                app:tint="@color/black" />
         </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:src="@drawable/etc_favorites_frag"/>
 
 </LinearLayout>

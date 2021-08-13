@@ -1,8 +1,8 @@
-package com.example.risingtest.src.cart
+package com.example.risingtest.src.main.cart
 
 import com.example.risingtest.config.BaseResponse
-import com.example.risingtest.src.cart.models.DetailMenuResponse
-import com.example.risingtest.src.cart.models.NewCartResponse
+import com.example.risingtest.src.main.cart.models.DetailMenuResponse
+import com.example.risingtest.src.main.cart.models.NewCartResponse
 
 interface CartActivityView {
 

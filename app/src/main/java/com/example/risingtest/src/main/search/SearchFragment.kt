@@ -24,15 +24,13 @@ class SearchFragment :
     fun setRestaurantTypeDummyData(): MutableList<RestaurantType>{
         var dataList =  mutableListOf<RestaurantType>()
 
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"신규 맛집"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"1인분"))
+
         dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
-        dataList.add(RestaurantType(R.drawable.square_restaurant_type1,"한식"))
+        dataList.add(RestaurantType(R.drawable.rest_sqr_search_china,"중식"))
+        dataList.add(RestaurantType(R.drawable.rest_sqr_japan,"일식"))
+        dataList.add(RestaurantType(R.drawable.rest_sqr_europe,"양식"))
+        dataList.add(RestaurantType(R.drawable.rest_sqr_pork_curtlette,"돈까스"))
+        dataList.add(RestaurantType(R.drawable.rest_sqr_dessert,"디저트"))
 
         return dataList
     }

@@ -12,32 +12,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름"
-            android:textSize="36dp"
+            android:textSize="30dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="23dp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="6dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            android:text="000-****-0000"/>
+            android:textSize="18dp"
+            android:text="000-****-5659"/>
     </LinearLayout>
     <ImageView
+        android:layout_marginTop="10dp"
         android:layout_width="420dp"
         android:layout_height="100dp"
         android:src="@drawable/ad_2cm_9cm"/>
-    <TextView
-        android:id="@+id/move_setting_btn_my_eats"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="설정"
-        android:textSize="20dp"
-        android:padding="30dp"
-        android:textColor="@color/black"
-        />
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_setting"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/move_setting_btn_my_eats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:textSize="23dp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
 
 </LinearLayout>

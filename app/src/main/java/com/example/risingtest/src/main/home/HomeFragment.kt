@@ -2,7 +2,6 @@ package com.example.risingtest.src.main.home
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,15 +10,11 @@ import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
-import com.example.risingtest.src.cart.CartActivity
+import com.example.risingtest.src.main.cart.CartActivity
 import com.example.risingtest.src.main.BottomSheet
-import com.example.risingtest.src.main.MainActivity
-import com.example.risingtest.src.main.RestaurantProfileData
-import com.example.risingtest.src.main.RestaurantType
 import com.example.risingtest.src.main.home.models.CategoryResult
 import com.example.risingtest.src.main.home.models.HomeResponse
 import com.example.risingtest.src.main.home.models.HomeRestResult
-import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
 

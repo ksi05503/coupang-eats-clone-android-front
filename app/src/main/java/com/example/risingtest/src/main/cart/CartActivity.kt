@@ -1,17 +1,16 @@
-package com.example.risingtest.src.cart
+package com.example.risingtest.src.main.cart
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import com.bumptech.glide.Glide
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.config.BaseResponse
 import com.example.risingtest.databinding.ActivityCartBinding
-import com.example.risingtest.src.cart.models.DetailMenuResponse
-import com.example.risingtest.src.cart.models.NewCartResponse
-import com.example.risingtest.src.cart.models.PostAddMenuRequest
-import com.example.risingtest.src.cart.models.PostNewCartsRequest
+import com.example.risingtest.src.main.cart.models.DetailMenuResponse
+import com.example.risingtest.src.main.cart.models.NewCartResponse
+import com.example.risingtest.src.main.cart.models.PostAddMenuRequest
+import com.example.risingtest.src.main.cart.models.PostNewCartsRequest
 import com.example.risingtest.src.main.BottomSheet
 import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
@@ -22,6 +21,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
     private var amount = 1
     private var menuId = 1
     private var restId = 0
+    private var tempAdditionalMenuId = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +87,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
             //카트에담기
             if(checkIsLogin()){
                 btnAddCart.setOnClickListener {
-                    val postAddMenuRequest = PostAddMenuRequest(cartId = cartId , menuId = menuId, menuCount = amount, additionalMenuId = 1)
+                    val postAddMenuRequest = PostAddMenuRequest(cartId = cartId , menuId = menuId, menuCount = amount, additionalMenuId = tempAdditionalMenuId)
                     CartService(this@CartActivity).tryPostAddMenu(postAddMenuRequest)
                 }
             }
@@ -113,6 +113,8 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
 
     override fun onGetDetailMenuSuccess(response: DetailMenuResponse) {
         Log.d("Okhttp","detail메뉴 성공: ${response.result.restAdditionalMenuResult.size}개의 세부메뉴")
+
+        tempAdditionalMenuId = response.result.restAdditionalMenuResult[0].additionalMenuId
 
         restId = response.result.restMenuResult[0].restId
         val detailMenuAdapter = DetailMenuAdapter()

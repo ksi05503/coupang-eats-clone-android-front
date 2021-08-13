@@ -13,6 +13,16 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
         supportActionBar?.title = "회원가입"
 
         binding.apply {
+            linearLayoutCheckParent.setOnClickListener {
+                checkBox0.isChecked = true
+                checkBox1.isChecked = true
+                checkBox2.isChecked = true
+                checkBox3.isChecked = true
+                checkBox4.isChecked = true
+                checkBox5.isChecked = true
+            }
+
+
             signUpBtn.setOnClickListener {
                 val userEmail = editTextEmail.text.toString()
                 val password = editTextPassword.text.toString()
@@ -29,6 +39,8 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>(ActivitySignUpBinding
 
     override fun onPostSignUpSuccess(response: SignUpResponse) {
         Log.d("Okhttp",response.message.toString())
+
+        finish()
     }
 
     override fun onPostSignUpFailure(message: String) {

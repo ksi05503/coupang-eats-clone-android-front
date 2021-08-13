@@ -1,4 +1,4 @@
-package com.example.risingtest.src.cart.models
+package com.example.risingtest.src.main.cart.models
 
 import com.google.gson.annotations.SerializedName
 

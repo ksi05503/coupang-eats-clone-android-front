@@ -1,4 +1,4 @@
-package com.example.risingtest.src.cart
+package com.example.risingtest.src.main.cart
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
-import com.example.risingtest.src.cart.models.RestAdditionalMenuResult
+import com.example.risingtest.src.main.cart.models.RestAdditionalMenuResult
 
 
 class DetailMenuAdapter : RecyclerView.Adapter<DetailMenuAdapter.ViewHolder>()  {
