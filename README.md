@@ -1,5 +1,6 @@
-# Coupang_eats_test_Android_Yeon
-RC 1기 라이징테스트 프로젝트 쿠팡잇츠입니다
+#쿠팡이츠 클론코딩
+
+#시연영상  https://youtu.be/zWXU52DuGos
 
 개발일지
 
