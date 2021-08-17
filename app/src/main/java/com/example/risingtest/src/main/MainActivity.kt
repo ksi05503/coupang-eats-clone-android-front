@@ -8,7 +8,6 @@ import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityMainBinding
 import com.example.risingtest.src.main.favorites.FavoritesActivity
-import com.example.risingtest.src.main.favorites.FavoritesFragment
 import com.example.risingtest.src.main.home.HomeFragment
 import com.example.risingtest.src.main.myeats.MyEatsFragment
 import com.example.risingtest.src.main.orders.OrdersFragment

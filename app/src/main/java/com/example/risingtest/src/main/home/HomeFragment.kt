@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
@@ -12,27 +13,38 @@ import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
 import com.example.risingtest.src.main.cart.CartActivity
 import com.example.risingtest.src.main.BottomSheet
+import com.example.risingtest.src.main.franchises.FranchisesActivity
 import com.example.risingtest.src.main.home.models.CategoryResult
 import com.example.risingtest.src.main.home.models.HomeResponse
 import com.example.risingtest.src.main.home.models.HomeRestResult
+import com.example.risingtest.src.main.recently.RecentlyActivity
+import com.example.risingtest.src.main.search.SearchActivity
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home) ,HomeFragmentView    {
+    var famousExtraListNonCheetah = mutableListOf<HomeRestResult>()
+    var famousExtraListCheetah = mutableListOf<HomeRestResult>()
+
+    val restaurantFamousAdapter = RestaurantFamousAdapter()
 
     private val filterArray = arrayOf(false,false,false,false,false)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        //임시 방편 (지워라 나중에)
-        binding.homeAd1.setOnClickListener {
-            val i  = Intent(view.context, CartActivity::class.java)
-            startActivity(i)
-        }
-
-
         initRestaurantFilterClickListener()
 
-
+        binding.homeSearchBtn.setOnClickListener {
+            val i =Intent(view.context , SearchActivity::class.java)
+            startActivity(i)
+        }
+        binding.homeBtnToFranchises.setOnClickListener {
+            val i = Intent(view.context, FranchisesActivity::class.java)
+            startActivity(i)
+        }
+        binding.homeBtnToRecently.setOnClickListener {
+            val i = Intent(view.context, RecentlyActivity::class.java)
+            startActivity(i)
+        }
 
 
         if(checkIsLogin()){
@@ -107,9 +119,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
                 if(filterArray[1] == false){
                     homeLayoutCheetah.setBackgroundResource(R.drawable.border_shape_selected)
                     homeTextCheetah.setTextColor(white_int)
+
+                    restaurantFamousAdapter.dataSet = famousExtraListCheetah
+                    restaurantFamousAdapter.notifyDataSetChanged()
                 }else{
                     homeLayoutCheetah.setBackgroundResource(R.drawable.border_shape_2)
                     homeTextCheetah.setTextColor(black_int)
+
+                    restaurantFamousAdapter.dataSet = famousExtraListNonCheetah
+                    restaurantFamousAdapter.notifyDataSetChanged()
                 }
                 filterArray[1] = !filterArray[1]
             }
@@ -215,9 +233,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.recyclerViewNewRestaurant.adapter = restaurantNewProfileAdapter
 
         //골라먹는맛집
-        val restaurantFamousAdapter = RestaurantFamousAdapter()
+        //val restaurantFamousAdapter = RestaurantFamousAdapter()
         restaurantFamousAdapter.dataSet = response.result.homeRestResult[2]
         binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+
+        val famousSize = response.result.homeRestResult[2].size
+        if(famousSize >3){
+            for(i in 1..3){
+                famousExtraListCheetah.add(response.result.homeRestResult[2][famousSize-i])
+            }
+            for(i in 0 until famousSize){
+                famousExtraListNonCheetah.add(response.result.homeRestResult[2][i])
+            }
+        }
+        famousExtraListCheetah.toList()
+
+
 
     }
 
@@ -252,6 +283,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         val restaurantFamousAdapter = RestaurantFamousAdapter()
         restaurantFamousAdapter.dataSet = response.result.homeRestResult[2]
         binding.recyclerViewFamousRestaurant.adapter = restaurantFamousAdapter
+
+
+
     }
 
     override fun onGetHomeNonLoginFailure(message: String) {

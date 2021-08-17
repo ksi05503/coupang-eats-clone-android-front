@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.search
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.example.risingtest.R
@@ -17,6 +18,10 @@ class SearchFragment :
         searchRestaurantTypeAdapter.dataSet = setRestaurantTypeDummyData()
         binding.recyclerViewSearchTypeGrid.adapter = searchRestaurantTypeAdapter
 
+        binding.searchFragmentEditText.setOnClickListener {
+            val i = Intent(view.context, SearchActivity::class.java)
+            startActivity(i)
+        }
 
     }
 

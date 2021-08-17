@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/item_famous_restaurant_name"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -32,6 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/item_rest_famout_cheetah_image"
             android:layout_width="80dp"
             android:layout_height="21dp"
             android:layout_marginStart="20dp"

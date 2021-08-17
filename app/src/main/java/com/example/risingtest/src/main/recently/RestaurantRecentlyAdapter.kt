@@ -1,7 +1,6 @@
-package com.example.risingtest.src.main.home
+package com.example.risingtest.src.main.recently
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,13 +9,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
-import com.example.risingtest.src.main.home.models.HomeRestResult
+import com.example.risingtest.src.main.franchises.models.FranchisesResult
+import com.example.risingtest.src.main.recently.models.RecentlyResult
+
 import com.example.risingtest.src.main.restaurant.RestaurantActivity
 
-class RestaurantFamousAdapter: RecyclerView.Adapter<RestaurantFamousAdapter.ViewHolder>()  {
-    var dataSet = listOf<HomeRestResult>()
 
-    class ViewHolder(view : View):RecyclerView.ViewHolder(view){
+class RestaurantRecentlyAdapter: RecyclerView.Adapter<RestaurantRecentlyAdapter.ViewHolder>()  {
+    var dataSet = listOf<RecentlyResult>()
+
+    class ViewHolder(view : View): RecyclerView.ViewHolder(view){
 
         val name: TextView = view.findViewById(R.id.item_famous_restaurant_name)
         val rate: TextView = view.findViewById(R.id.item_famous_restaurant_rate)
@@ -25,24 +27,24 @@ class RestaurantFamousAdapter: RecyclerView.Adapter<RestaurantFamousAdapter.View
         val deliveryCost: TextView = view.findViewById(R.id.item_famous_restaurant_delivery_cost)
         val image: ImageView = view.findViewById(R.id.item_famous_restaurant_image)
 
-        fun setItemInfo(homeRestResult: HomeRestResult){
-            name.text = homeRestResult.restName
-            rate.text = homeRestResult.star.toString()
-            val tempStringReviewCount = "(${homeRestResult.count_review})"
+        fun setItemInfo(recentlyResult: RecentlyResult){
+            name.text = recentlyResult.restName
+            rate.text = recentlyResult.star.toString()
+            val tempStringReviewCount = "(${recentlyResult.count_review})"
             reviewCount.text = tempStringReviewCount
-            val tempStringDistance = "${homeRestResult.distance_KM}km"
+            val tempStringDistance = "${recentlyResult.distance_KM}km"
             distance.text = tempStringDistance
-            var tempStringDeliveryCost = "배달비 ${homeRestResult.deliveryFee}"
-            if (homeRestResult.deliveryFee == "무료"){
+            var tempStringDeliveryCost = "배달비 ${recentlyResult.deliveryFee}원"
+            if (recentlyResult.deliveryFee == "무료"){
                 tempStringDeliveryCost = "무료배달"
             }
             deliveryCost.text = tempStringDeliveryCost
 
 
             Glide.with(image.context)
-                .load(homeRestResult.repRestImageUrl)
+                .load(recentlyResult.repRestImageUrl)
                 .into(image)
-           // image.setImageResource(R.drawable.restaurant_famous) //일단 이미지 더미로
+            // image.setImageResource(R.drawable.restaurant_famous) //일단 이미지 더미로
         }
 
         init {

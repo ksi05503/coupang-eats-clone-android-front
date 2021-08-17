@@ -34,10 +34,13 @@
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_cart.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_delivery.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_favorites.xml" value="0.24139492753623187" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_franchises.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_login.xml" value="0.4" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_main.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_payment.xml" value="0.264" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_recently.xml" value="0.203125" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_restaurant.xml" value="0.272108843537415" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_search.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_setting.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/activity_splash.xml" value="0.25" />
@@ -56,6 +59,7 @@
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_menu.xml" value="0.4" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_profile.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_restaurant_type.xml" value="0.25" />
+        <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_search_recent_keyword.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/item_search_restaurant_type.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/layout/layout_border_1.xml" value="0.25" />
         <entry key="..\:/Users/ksi05/Desktop/AndroidWorkPlace/MyRisingTest/app/src/main/res/menu/menu_main_bottom_nav.xml" value="0.2" />
