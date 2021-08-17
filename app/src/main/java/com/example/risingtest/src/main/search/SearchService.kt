@@ -1,6 +1,8 @@
 package com.example.risingtest.src.main.search
 
 import com.example.risingtest.config.ApplicationClass
+import com.example.risingtest.src.main.search.models.GetSearchContentRequest
+import com.example.risingtest.src.main.search.models.SearchContentResponse
 import com.example.risingtest.src.main.search.models.SearchKewordResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,4 +32,6 @@ class SearchService(val view:SearchActivityView) {
 
 
     }
+
+
 }

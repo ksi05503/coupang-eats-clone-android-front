@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.search
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivitySearchBinding
@@ -11,6 +12,13 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(ActivitySearchBinding
         super.onCreate(savedInstanceState)
 
         SearchService(this).tryGetSearchKeyword(1)
+
+
+        binding.searchActivityBtn.setOnClickListener {
+            val i = Intent ( this, SubSearchActivity::class.java)
+            i.putExtra("keyword",binding.searchActivityEditText.text.toString())
+            startActivity(i)
+        }
     }
 
     override fun onGetSearchKewordSuccess(response: SearchKewordResponse) {
