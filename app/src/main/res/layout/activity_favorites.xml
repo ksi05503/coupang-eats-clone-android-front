@@ -65,7 +65,7 @@
             android:padding="14dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:textSize="15dp"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-
+                android:textStyle="bold"
                 android:text="자주 주문한 순"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
@@ -96,9 +96,11 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorites_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:src="@drawable/etc_favorites_frag"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </LinearLayout>
