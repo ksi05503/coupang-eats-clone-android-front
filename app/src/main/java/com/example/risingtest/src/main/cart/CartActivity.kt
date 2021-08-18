@@ -20,7 +20,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
     private var priceOfOne = 0
     private var amount = 1
     private var menuId = 1
-    private var restId = 0
+    private var restId = 1
     private var tempAdditionalMenuId = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,16 +40,19 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
 
         }
         Log.d("Okhttp","CartActivity 생성/ cartId = $cartId")
+/*
 
         if(checkIsLogin() && cartId <= 0 ){
             //카트생성한채로 메뉴 구경
-            val postNewCartsRequest= PostNewCartsRequest(ApplicationClass.sSharedPreferences.getInt("MY_USERID",0),1)
+                Log.d("CartCheck", "restId : ${restId} 로 카트 생성")
+            val postNewCartsRequest= PostNewCartsRequest(ApplicationClass.sSharedPreferences.getInt("MY_USERID",0),restId)
             CartService(this).tryPostNewCart(postNewCartsRequest)
 
         }else{
             //비로그인은 세부메뉴창에들어와도 카트생성API를 사용하지 않음 (조회만하는거)
         }
 
+*/
 
         //비로그인 시 카트담기 누르면  로그인 바텀다이얼로그
         if(!checkIsLogin()){
@@ -118,9 +121,23 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
         tempAdditionalMenuId = response.result.restAdditionalMenuResult[0].additionalMenuId
 
         restId = response.result.restMenuResult[0].restId
+        Log.d("CartCheck","restId에 $restId 대입")
         val detailMenuAdapter = DetailMenuAdapter()
         detailMenuAdapter.dataSet = response.result.restAdditionalMenuResult
         binding.recyclerViewDetailMenu.adapter = detailMenuAdapter
+
+        //카트생성
+        if(checkIsLogin() && cartId <= 0 ){
+            //카트생성한채로 메뉴 구경
+            Log.d("CartCheck", "restId : ${restId} 로 카트 생성")
+            val postNewCartsRequest= PostNewCartsRequest(ApplicationClass.sSharedPreferences.getInt("MY_USERID",0),restId)
+            CartService(this).tryPostNewCart(postNewCartsRequest)
+
+        }else{
+            //비로그인은 세부메뉴창에들어와도 카트생성API를 사용하지 않음 (조회만하는거)
+        }
+
+
 
         //카트 레이아웃
         binding.apply {
