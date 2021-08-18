@@ -88,6 +88,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(ActivityCartBinding::infl
             if(checkIsLogin()){
                 btnAddCart.setOnClickListener {
                     val postAddMenuRequest = PostAddMenuRequest(cartId = cartId , menuId = menuId, menuCount = amount, additionalMenuId = tempAdditionalMenuId)
+                    Log.d("Okhttp","menuCount:$amount 개")
                     CartService(this@CartActivity).tryPostAddMenu(postAddMenuRequest)
                 }
             }

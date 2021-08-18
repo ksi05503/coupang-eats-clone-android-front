@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="과거 주문 내역"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            />
+        <View
+            android:layout_width="130dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="준비중"
+            android:textColor="@color/gray"
+            android:textSize="16dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="30dp"
+            />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:src="@drawable/etc_img_line"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="orders"
-        android:textSize="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:id="@+id/search_activity_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="10"
+            android:background="@drawable/border_shape"
+            android:hint=" 주문한 메뉴/매장을 찾아보세요"
+            android:padding="11dp"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/search_activity_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_baseline_search_24"
+            android:backgroundTint="@color/white"
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orders_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+</LinearLayout>

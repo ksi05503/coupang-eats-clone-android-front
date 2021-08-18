@@ -10,18 +10,20 @@
         android:layout_height="52dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src = "@drawable/icon_location_yellow"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src = "@drawable/icon_location"
+            android:layout_marginTop="2dp"
             android:layout_gravity="center"
             android:layout_marginBottom="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="15dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="서울시 광진구 화양동 1-1"
+            android:text="집"
             android:gravity="center"
-            android:textSize="14dp"
+            android:textSize="16dp"
             android:textColor="@color/black"/>
         <ImageView
             android:layout_width="28dp"

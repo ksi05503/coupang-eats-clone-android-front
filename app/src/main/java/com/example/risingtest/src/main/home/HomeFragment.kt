@@ -210,7 +210,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
     }*/
 
     override fun onGetHomeSuccess(response: HomeResponse) {
-        Log.d("Okhttp",response.message.toString())
+        Log.d("Okhttp","주소: ${response.result.homeUserAddressResult[0].homeAddress}")
+        Log.d("Okhttp","주소: ${response.result.homeUserAddressResult[0].defaultAddressId}")
 
         val restaurantTypeAdapter = RestaurantTypeAdapter()
         restaurantTypeAdapter.dataSet = response.result.categoryResult

@@ -32,8 +32,10 @@ class PaymentActivity : BaseActivity<ActivityPaymentBinding>(ActivityPaymentBind
         Log.d("Okhttp","성공: ${response.result.cartMenuINfoResult[0].menuName}")
 
         binding.apply {
-            paymentAdress.text = response.result.cartAddressResult[0].address
-            paymentAdressDetail.text = response.result.cartAddressResult[0].addressCategory
+
+      //      paymentAdress.text = response.result.cartAddressResult[0].address
+      //      paymentAdressDetail.text = response.result.cartAddressResult[0].addressCategory
+            paymentAdressDetail.text = response.result.cartAddressResult[0].address
             paymentRestName.text = response.result.cartRestInfoResult[0].restName
             paymentMenuName.text = response.result.cartMenuINfoResult[0].menuName
             val tempMenuDetail = response.result.cartMenuINfoResult[0].totalAdditionalMenuContents.split(",")[0]

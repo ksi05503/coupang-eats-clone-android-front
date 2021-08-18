@@ -5,15 +5,20 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
+import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityRestaurantBinding
+import com.example.risingtest.src.main.favorites.FavoritesService
 import com.example.risingtest.src.main.payment.PaymentActivity
 import com.example.risingtest.src.main.restaurant.models.MenuResponse
 import com.example.risingtest.src.main.restaurant.models.MenuResult
+import com.example.risingtest.src.main.restaurant.models.PostBookmarksRequest
+import com.example.risingtest.src.main.restaurant.models.PostBookmarksResponse
 
 class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityRestaurantBinding::inflate),RestaurantActivityView {
     var restaurantActivitycartId = -1
+    var isBookmark = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initBtnClickListener()
@@ -47,6 +52,25 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
 /*            val restaurantMenuAdapter = RestaurantMenuAdapter()
             restaurantMenuAdapter.dataSet = setRestaurantMenuDummyData()
             binding.recyclerViewRestaurantMenu.adapter = restaurantMenuAdapter*/
+
+
+        var oneTimebookmark = 0
+        binding.restaurantBookmarkFavoritesBtn.setOnClickListener {
+            if(isBookmark ==0){
+                binding.restaurantBookmarkFavoritesBtn.setBackgroundResource(R.drawable.ic_baseline_favorite_24)
+                isBookmark = 1
+                if(oneTimebookmark == 0){
+                    oneTimebookmark = 1
+                    // 북마크 api 호출
+/*                    val postBookmarksRequest = PostBookmarksRequest(2)
+                    RestaurantService(this).tryPostBookmarks(1,postBookmarksRequest)*/
+
+                }
+            }else{
+                binding.restaurantBookmarkFavoritesBtn.setBackgroundResource(R.drawable.ic_baseline_favorite_border_a)
+                isBookmark = 0
+            }
+        }
     }
 
 
@@ -145,5 +169,13 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
     }
 
     override fun onGetMenuNonLoginFailure(message: String) {
+    }
+
+    override fun onPostBookmarksSuccess(response: PostBookmarksResponse) {
+        showCustomToast("북마크성공")
+    }
+
+    override fun onPostBookmarksFailure(message: String) {
+
     }
 }

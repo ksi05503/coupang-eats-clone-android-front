@@ -10,4 +10,6 @@ interface SearchActivityView {
 /*    fun onGetSearchContentSuccess(response: SearchContentResponse)
     fun onGetSearchContentFailure(message : String)*/
 
+
+
 }
