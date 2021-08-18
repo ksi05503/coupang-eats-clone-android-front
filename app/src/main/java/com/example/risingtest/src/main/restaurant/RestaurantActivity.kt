@@ -62,8 +62,8 @@ class RestaurantActivity : BaseActivity<ActivityRestaurantBinding>(ActivityResta
                 if(oneTimebookmark == 0){
                     oneTimebookmark = 1
                     // 북마크 api 호출
-/*                    val postBookmarksRequest = PostBookmarksRequest(2)
-                    RestaurantService(this).tryPostBookmarks(1,postBookmarksRequest)*/
+                    val postBookmarksRequest = PostBookmarksRequest(11)
+                    RestaurantService(this).tryPostBookmarks(1,postBookmarksRequest)
 
                 }
             }else{
