@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.search
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,12 @@ class SearchKeywordAdapter : RecyclerView.Adapter<SearchKeywordAdapter.ViewHolde
         val data = dataSet.get(position)
         holder.setItemInfo(data)
         //누르면 data의 word로 검색 액티비티로 이동
+
+        holder.itemView.setOnClickListener {
+            val i = Intent(holder.itemView.context, SubSearchActivity::class.java)
+            i.putExtra("keyword","떡볶이")
+            holder.itemView.context.startActivity(i)
+        }
     }
 
     override fun getItemCount(): Int {

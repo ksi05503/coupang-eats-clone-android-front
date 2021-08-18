@@ -7,6 +7,7 @@ import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentMyEatsBinding
+import com.example.risingtest.src.main.favorites.FavoritesActivity
 import com.example.risingtest.src.main.myeats.activities.SettingActivity
 
 class MyEatsFragment :
@@ -21,6 +22,11 @@ class MyEatsFragment :
         binding.apply {
             moveSettingBtnMyEats.setOnClickListener {
                 val i= Intent(activity, SettingActivity::class.java)
+                startActivity(i)
+            }
+
+            moveFavoritesBtnMyEats.setOnClickListener {
+                val i = Intent(activity, FavoritesActivity::class.java)
                 startActivity(i)
             }
         }

@@ -34,11 +34,11 @@ class HomeService(val view: HomeFragmentView) {
         homeRetrofitInterface.getHomeNonLogin().enqueue(object :
             Callback<HomeResponse>{
             override fun onResponse(call: Call<HomeResponse>, response: Response<HomeResponse>) {
-                view.onGetHomeSuccess(response.body() as HomeResponse)
+                view.onGetHomeNonLoginSuccess(response.body() as HomeResponse)
             }
 
             override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
-                view.onGetHomeFailure(t.message ?: "통신 오류")
+                view.onGetHomeNonLoginFailure(t.message ?: "통신 오류")
             }
 
         }

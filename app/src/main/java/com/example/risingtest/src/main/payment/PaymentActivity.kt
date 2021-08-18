@@ -7,6 +7,7 @@ import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityPaymentBinding
 import com.example.risingtest.src.main.delivery.DeliveryActivity
 import com.example.risingtest.src.main.payment.models.PaymentResponse
+import com.example.risingtest.src.main.payment.models.PostOrderResponse
 
 class PaymentActivity : BaseActivity<ActivityPaymentBinding>(ActivityPaymentBinding::inflate), PaymentActivityView{
     var totalPrice = ""
@@ -14,7 +15,15 @@ class PaymentActivity : BaseActivity<ActivityPaymentBinding>(ActivityPaymentBind
     var menuName = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val cartId =  intent.getIntExtra("cartId",1)
+        Log.d("Okhttp", "payment액티비티 / cartId$cartId")
+        PaymentService(this).tryGetPayment(cartId)
+
         binding.btnShowCart.setOnClickListener {
+            //결제하기 api & 배송액티비티로 넘어가기
+
+            PaymentService(this).tryPostOrder(cartId,"","초인종 누르고 문 앞","N")
+
             val i = Intent(this, DeliveryActivity::class.java)
             i.putExtra("totalPrice",totalPrice)
             i.putExtra("restName",restName)
@@ -22,10 +31,7 @@ class PaymentActivity : BaseActivity<ActivityPaymentBinding>(ActivityPaymentBind
             startActivity(i)
         }
 
-        val cartId =  intent.getIntExtra("cartId",1)
-        Log.d("Okhttp", "payment액티비티 / cartId$cartId")
 
-        PaymentService(this).tryGetPayment(cartId)
     }
 
     override fun onGetPaymentSuccess(response: PaymentResponse) {
@@ -62,5 +68,13 @@ class PaymentActivity : BaseActivity<ActivityPaymentBinding>(ActivityPaymentBind
     override fun onGetPaymentFailure(message: String) {
         Log.d("Okhttp",message)
 
+    }
+
+    override fun onPostOrderSuccess(response: PostOrderResponse) {
+        showCustomToast("결제성공")
+    }
+
+    override fun onPostOrderFailure(message: String) {
+        showCustomToast("실패")
     }
 }
