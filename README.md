@@ -1,6 +1,9 @@
-# 쿠팡이츠 클론코딩 Android
+# 쿠팡이츠 클론코딩 프로젝트 
+쿠팡이츠 클론코딩 프로젝트에 안드로이드 개발로 참여하였다.
+총 인원은 서버(Node.js) 한분과 본인 포함 2명이다.
 
-### 시연영상  https://youtu.be/WOmPSF4fdCo
+### 시연영상  
+https://youtu.be/WOmPSF4fdCo
 
 ### 개발일지
 
